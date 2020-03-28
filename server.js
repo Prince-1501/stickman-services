@@ -8,7 +8,10 @@ var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
 
-mongoose.connect('mongodb://localhost:27017/Stickman',{ useNewUrlParser: true });
+//mongoose.connect('mongodb://localhost:27017/Stickman',{ useNewUrlParser: true });
+mongoose.connect('mongodb+srv://stickman-service:stickman-service@stickman-service-wlhd2.mongodb.net/test?retryWrites=true&w=majority',{
+  useMongoClient : true
+});
 mongoose.Promise = global.Promise; // to remove the depreciating warning
 
 const User = require('./models/profile.js');
@@ -119,7 +122,7 @@ app.post('/signin', (req,res)=>{
     bcrypt.compare(req.body.password , user[0].password , (err, result)=>{
       if(err){
         return res.status(401).render('error.hbs',{
-          errorMessage : "Auth failed"
+          errorMessage : err
         });
       }
       if(result){
