@@ -50,7 +50,7 @@ app.set('view engine', 'hbs');
 var port = process.env.PORT || 5000;
 
 
-app.get('/signup',(req,res)=>{
+app.get('/',(req,res)=>{
   res.render('signup.hbs');
 });
 
