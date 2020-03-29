@@ -68,36 +68,45 @@ app.post('/signup' , upload.single('userImage'),(req,res)=>{
         errorMessage : 'Auth failed User is already Present'
       });
     }
-
-    bcrypt.hash(req.body.password , 10 , (err, hash)=>{
-      if(err){
-        return res.status(500).render('error.hbs',{
-          errorMessage:err
-        });
-      }else{
-        console.log(req.file);
-        var user = new User({
-          _id: new mongoose.Types.ObjectId(),
-          username:req.body.username,
-          email:req.body.email,
-          password: hash,
-          userImage: req.file.path
-        });
-
-        user.save().then((result)=>{
-          console.log(result);
-          res.render('success.hbs' , {
-            successMessage : `Your username is ${user.username}`
+    var temp_password = false;
+    temp_password = req.body.password;
+    if(temp_password){
+      bcrypt.hash(req.body.password , 10 , (err, hash)=>{
+        if(err){
+          return res.status(500).render('error.hbs',{
+            errorMessage:err
           });
-        }).catch((err)=>{
-          //console.log(err);
-          res.render('error.hbs',{
-            errorMessage : err
+        }else{
+          console.log(req.file);
+          var user = new User({
+            _id: new mongoose.Types.ObjectId(),
+            username:req.body.username,
+            email:req.body.email,
+            password: hash,
+            userImage: req.file.path
           });
-        });
 
-      }
-    });
+          user.save().then((result)=>{
+            console.log(result);
+            res.render('success.hbs' , {
+              successMessage : `Your username is ${user.username}`
+            });
+          }).catch((err)=>{
+            //console.log(err);
+            res.render('error.hbs',{
+              errorMessage : err
+            });
+          });
+
+        }
+      });
+    }else {
+      res.render('error.hbs',{
+        errorMessage : "Please Enter password"
+      });
+    }
+
+
 
 
   }).catch((error)=>{
