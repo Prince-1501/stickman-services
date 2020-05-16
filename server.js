@@ -9,9 +9,7 @@ var jwt = require('jsonwebtoken');
 
 
 //mongoose.connect('mongodb://localhost:27017/Stickman',{ useNewUrlParser: true });
-mongoose.connect('mongodb+srv://stickman-service:stickman-service@stickman-service-wlhd2.mongodb.net/test?retryWrites=true&w=majority',{
-  useMongoClient : true
-});
+mongoose.connect('mongodb+srv://stickman-service:stickman-service@stickman-service-wlhd2.mongodb.net/test?retryWrites=true&w=majority');
 mongoose.Promise = global.Promise; // to remove the depreciating warning
 
 const User = require('./models/profile.js');
@@ -55,11 +53,12 @@ var port = process.env.PORT || 5000;
 
 app.get('/',(req,res)=>{
   res.render('signup.hbs');
+  console.log('sundaram raj ');
 });
 
 app.post('/signup' , upload.single('userImage'),(req,res)=>{
 
-  User.find({username : req.body.username, email: req.body.email})
+  User.find({email: req.body.email})
   .exec()
   .then((user)=>{
 
@@ -80,7 +79,9 @@ app.post('/signup' , upload.single('userImage'),(req,res)=>{
           console.log(req.file);
           var user = new User({
             _id: new mongoose.Types.ObjectId(),
-            username:req.body.username,
+            name:req.body.name,
+            phone:req.body.phone,
+            aadhaar:req.body.aadhaar,
             email:req.body.email,
             password: hash,
             userImage: req.file.path
@@ -89,7 +90,7 @@ app.post('/signup' , upload.single('userImage'),(req,res)=>{
           user.save().then((result)=>{
             console.log(result);
             res.render('success.hbs' , {
-              successMessage : `Your username is ${user.username}`
+              successMessage : `Your Email id is : ${user.email} Registered`
             });
           }).catch((err)=>{
             //console.log(err);
@@ -122,7 +123,7 @@ app.get('/signin',(req,res)=>{
 });
 
 app.post('/signin', (req,res)=>{
-  User.find({email:req.body.email , username: req.body.username}).exec().then((user)=>{
+  User.find({email:req.body.email}).exec().then((user)=>{
     if(user.length<1){
       return res.status(401).render('error.hbs',{
         errorMessage : "Auth failed"
@@ -138,7 +139,7 @@ app.post('/signin', (req,res)=>{
         return res.status(401).render('user.hbs',{
           successMessage : "Auth succesful",
           image: user[0].userImage,
-          userUsername: user[0].username,
+          Name: user[0].name,
           userEmail : user[0].email
         });
       }
@@ -153,11 +154,6 @@ app.post('/signin', (req,res)=>{
 
 app.use((error, req, res, next)=>{
   res.status(error.status || 500);
-  // res.json({
-  //   error:{
-  //     message:error.message
-  //   }
-  // });
   res.render('error.hbs',{
     errorMessage : error.message
   })

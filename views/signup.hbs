@@ -2,16 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Stickman service</title>
+    <title>XPCOVER</title>
     <link rel="stylesheet" href="/css/main.css">
   </head>
   <body>
     <div class="login-page">
       <div class="form">
         <form class="register-form" action="/signup" method="post" enctype="multipart/form-data">
-          <input type="text" placeholder="Username" name="username"/>
-          <input type="text" placeholder="email address" name="email"/>
+          <input type="text" placeholder="Name" name="name"/>
+          <input type="number" placeholder="Aadhar Number" name="aadhaar"/>
+          <input type="number" placeholder="Phone Number" name="phone"/>
+          <input type="email" placeholder="email address" name="email"/>
           <input type="password" placeholder="password" name="password"/>
+          <label for="fileupload"> Upload Your Profile Image</label>
           <input type="file" name="userImage"/>
           <button>create</button>
           <p class="message">Already registered? <a href="./signin">Sign In</a></p>
