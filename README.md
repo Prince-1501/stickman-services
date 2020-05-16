@@ -1,3 +1,21 @@
-# stickman-services
+# Updated SignUp and SignIn Page for Xpcover
 
-* A Page design for User sign up and Sign In
+* A Page design for User signup and SignIn from scratch in Nodejs
+* This Repository uses **Mongodb Atlas** for storing Users database
+* Nothing any uses of Totaljs and Flow 
+
+-------------------------------------------------------------------------------
+
+* First you should ensure you have Nodejs Installed in Your System
+
+* Go to the Terminal / command line  `git clone https://github.com/Prince-1501/stickman-services.git`
+* move inside the folder stickman-services
+* Run `npm install`
+* Run `node server.js`
+* Move to Browser and open `http://localhost:5000/`
+
+
+* It has Features like, Validations like uniuqe Email address and If you can entered wrong credentials then it shows corresponding errors on screen. You can test all this stuffs.
+-------------------------------------------------------------------------------
+
+![GitHub Logo](https://github.com/Prince-1501/stickman-services/blob/master/public/img/sample.jpg)
