@@ -30,7 +30,7 @@
 * Run in terminal / command line  `npm install total.js`
 * Run `node index.js`
 * Open your Browser and go to `http://192.168.43.166:8000/` or `http://0.0.0.0:8000/`
-* And you will get this contact-form. And it works fine and all data is saved under database Folder inside of contact-form.
+* And you will get this contact-form. And it works fine and all data is saved under **database Folder** inside of contact-form.
 * **Still** Code Strcuture of this environment is quite difficult to understand because of improper documentation and less number of community interactions.
 
 ![Signup page from Totaljs Example](https://github.com/Prince-1501/stickman-services/blob/master/public/img/sample-totaljs.jpg)
