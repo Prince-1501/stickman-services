@@ -1,0 +1,24 @@
+{
+  "pid": 7533,
+  "stats": [
+    {
+      "id": null,
+      "version": {
+        "node": "v13.12.0",
+        "total": "3.4.3",
+        "app": "1.0.0"
+      },
+      "pid": 7533,
+      "thread": "",
+      "mode": "debug",
+      "date": "2020-05-16T06:32:23.082Z",
+      "memory": 7.61,
+      "rm": 0.09,
+      "fm": 0,
+      "requests": 4,
+      "pending": 0,
+      "errors": 0,
+      "timeouts": 0
+    }
+  ]
+}
