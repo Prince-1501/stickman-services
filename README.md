@@ -18,4 +18,19 @@
 * It has Features like, Validations like uniuqe Email address and If you can entered wrong credentials then it shows corresponding errors on screen. You can test all this stuffs.
 -------------------------------------------------------------------------------
 
-![GitHub Logo](https://github.com/Prince-1501/stickman-services/blob/master/public/img/sample.jpg)
+![Signup Page Example](https://github.com/Prince-1501/stickman-services/blob/master/public/img/sample.jpg)
+
+
+-------------------------------------------------------------------------------
+
+# Now We have Another Options Regarding **How to Implement Totaljs in signup Forms**
+
+* There is a separate Folder for that named "contact-form" inside of "stickman-services"
+* Now Move inside of "contact-form"
+* Run in terminal / command line  `npm install total.js`
+* Run `node index.js`
+* Open your Browser and go to `http://192.168.43.166:8000/` or `http://0.0.0.0:8000/`
+* And you will get this contact-form. And it works fine and all data is saved under database Folder inside of contact-form.
+* **Still** Code Strcuture of this environment is quite difficult to understand because of improper documentation and less number of community interactions.
+
+![Signup page from Totaljs Example](https://github.com/Prince-1501/stickman-services/blob/master/public/img/sample-totaljs.jpg)
